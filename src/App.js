@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import Navbar from './components/layout/Navbar';
+import Users from './components/users/Users';
 import './App.css';
 
 //function based component
@@ -11,7 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <h1>Welcome!</h1>
+        <div className="container">
+          <Users />
+        </div>
       </div>
     );
   }
