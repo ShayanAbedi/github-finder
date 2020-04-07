@@ -1,24 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Navbar = ({ icon, title }) => {
   //destructuring the props - instead of saying `props.icon` and `props.title`
   return (
     <nav className="navbar bg-primary">
       <h1>
-        {<i className={icon}></i>}
-        {title}
+        <i className={icon}> </i> {title}
       </h1>
     </nav>
   );
 };
 Navbar.defaultProps = {
-  title: 'GitHub Finder',
-  icon: 'fab fa-github'
+  title: "GitHub Finder",
+  icon: "fab fa-github",
 };
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired
+  icon: PropTypes.string.isRequired,
 };
 export default Navbar;
