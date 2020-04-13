@@ -11,7 +11,7 @@ import {
   GET_REPOS,
 } from "../types";
 
-//include all of our actions ans states
+//include all of our actions and states
 const GithubState = (props) => {
   const initialState = {
     users: [],
@@ -44,6 +44,16 @@ const GithubState = (props) => {
     });
   };
   //Get Repos
+  const getUserRepos = async (username) => {
+    setLoading();
+    const res = await axios.get(
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GIT_ID}&client_secret=${process.env.REACT_APP_GIT_SECRET}`
+    );
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
+  };
   //Clear Users
   const clearUsers = () => dispatch({ type: CLEAR_USERS });
 
@@ -62,6 +72,7 @@ const GithubState = (props) => {
         searchUsers,
         clearUsers,
         getUser,
+        getUserRepos,
       }}
     >
       {props.children}
